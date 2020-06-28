@@ -11,8 +11,9 @@ $client->setAuthConfig('credentials.json');
 $sheets = new \Google_Service_Sheets($client);
 
 
-$spreadsheetId = '1g66RitDyMFAMdKmtob3wyooNXCxNh3oWTin2YIhN1JA';
-$range = 'A:B';
+// $spreadsheetId = '1g66RitDyMFAMdKmtob3wyooNXCxNh3oWTin2YIhN1JA';
+$spreadsheetId = '1O7QeWi8JUDewl8nrxzUnFstkUqHaa5R5qwHTP4vRLOk';
+$range = 'A:Z';
 $response = $sheets->spreadsheets_values->get($spreadsheetId, $range);
 
 $values = $response->getValues();
@@ -20,7 +21,7 @@ if(empty($values)) {
     echo "No Data...";
 } else {
     foreach ($values as $row) {
-    	echo json_encode($row, JSON_FORCE_OBJECT);
-        //print_r($row);
+    	// echo json_encode($row, JSON_FORCE_OBJECT);
+        print_r($row);
     }
 }

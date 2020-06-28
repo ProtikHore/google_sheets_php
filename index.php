@@ -15,11 +15,12 @@ $spreadsheetId = '1g66RitDyMFAMdKmtob3wyooNXCxNh3oWTin2YIhN1JA';
 $range = 'A:B';
 $response = $sheets->spreadsheets_values->get($spreadsheetId, $range);
 
-$valus = $response->getValues();
-if(empty($valus)) {
+$values = $response->getValues();
+if(empty($values)) {
     echo "No Data...";
 } else {
-    foreach ($valus as $row) {
-        print_r($row);
+    foreach ($values as $row) {
+    	echo json_encode($row, JSON_FORCE_OBJECT);
+        //print_r($row);
     }
 }
